@@ -98,7 +98,7 @@ the supplied zip move function each time"
 (defn add-artifact [project type artifact version]
   (update-dependency-list project type
                           (fn [deps]
-                            (cons [(symbol artifact) version] deps))))
+                            (into [] (cons [(symbol artifact) version] deps)))))
 
 (defn update-artifact [project dep-type artifact new-version]
   (update-dependency-list project dep-type
